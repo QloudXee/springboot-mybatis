@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$.ajax({
+			  type: "GET",
+			  url: "/student/queryAll",
+			  dataType: "json",
+			  success : function(students){
+					  alert("success");
+					  var studentList = students.students;
+					  $("#h").after("<h3>"+studentList[2].name+"</h3>");
+					  $("#h").after("<h3>"+studentList[1].name+"</h3>");
+					  $("#h").after("<h3>"+studentList[0].name+"</h3>");
+			  },
+			  error : function(students){
+				  alert("error");
+			  }
+			});
+	})
+</script>
+</head>
+<body>
+	<h1 id="h">student页面</h1>
+</body>
+</html>
